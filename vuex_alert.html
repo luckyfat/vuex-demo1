@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">用户名</label>
+        <div class="col-sm-10">
+            <input type="text" v-uname="username" v-model="username" v-on:blur="userNameChange()" class="form-control" :placeholder="username">
+            
+        </div>
+        <txt :uname="username"></txt>
+    </div>
+<script src="vue.js"></script>
+<script src="vuex.js"></script>  
+<script>
+    Vue.component("txt",{
+        props:["uname"],
+        template:"<li>{{uname}}<li>"
+    })
+    var vue = new Vue({
+        el:".form-group",
+        data:{
+            username:"fsfsdfsdf"
+        },
+        methods:{
+            userNameChange(){
+                let text=document.querySelector(".form-control")
+                this.username = this.username;
+                console.log(text)
+            }
+        }
+    })
+
+</script>
+</body>
+</html>
